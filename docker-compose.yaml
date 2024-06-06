@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+
+  nyancat:
+    image: wernight/funbox
+    command: nyancat
+    restart: unless-stopped
+    cpus: "1.5"
+    ports:
+      - "8123:8123"
+    volumes:
+      - /usr/src/dev wernight/funbox nyancat
+
+  clickhouse-server:
+    image: clickhouse/clickhouse-server
+    container_name: clickhouse-server
+    restart: unless-stopped
+    mem_limit: 256m
+    ports:
+      - "1234:4444"
+    volumes:
+      - /usr/src/dev clickhouse/clickhouse-server

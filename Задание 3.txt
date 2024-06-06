@@ -1,0 +1,8 @@
+Запуск 
+docker_compose up
+
+Рестарт
+docker-compose restart
+
+Остановка
+docker-compose down

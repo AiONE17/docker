@@ -1,0 +1,65 @@
+1) Первый образ 
+Скачал образ
+docker pull wernight/funbox
+
+Запустил контейнер
+docker run wernight/funbox
+docker run -it wernight/funbox nyancat
+
+Список контейнеров
+docker ps
+
+Перезапуск по CONTAINER ID
+docker restart dc91e1afe3bc
+
+Остановка по CONTAINER ID
+docker stop dc91e1afe3bc
+
+Удаление по CONTAINER ID
+docker rm dc91e1afe3bc
+
+Запуск с параметром о перезапуске
+docker run --restart=unless-stopped -it wernight/funbox nyancat
+
+Ограничение ресурсов (установка количества CPU для контейнера)
+docker run --cpus="1.5" -it wernight/funbox nyancat
+
+Указание порта
+docker run --rm -d --name ch -p 8123:8123 -it wernight/funbox nyancat
+
+Указание тома
+docker run -v run -it -v first_volume:/usr/src/dev wernight/funbox nyancat
+
+Вывод списка томов 
+docker volume ls
+
+2) Второй образ
+Скачал образ
+docker pull clickhouse/clickhouse-server
+
+Запустил контейнер
+docker run clickhouse/clickhouse-server
+
+Перезапуск 
+docker restart 3b2c3f07a867
+
+Остановка
+docker stop 3b2c3f07a867
+
+Удаление
+docker rm 3b2c3f07a867
+
+Запуск с параметром о перезапуске
+docker run --restart=unless-stopped clickhouse/clickhouse-server
+
+Ограничение ресурсов (установка лимита памяти для контейнера)
+docker run -m 256m clickhouse/clickhouse-server
+
+Указание порта
+docker run --rm -d --name ch -p 1234:4444 clickhouse/clickhouse-server
+
+Указание тома
+docker run -v run -it -v first_volume:/usr/src/dev clickhouse/clickhouse-server
+
+Вывод списка томов 
+docker volume ls
